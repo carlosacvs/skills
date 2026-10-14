@@ -56,10 +56,12 @@ editáveis direto no Claude Design. O mapa fica na página Referência.
   a pasta de saída e o que já se aprendeu ("o cabelo agora é curto", "não
   gerar jaleco").
 
-- **Esperar uma coisa terminar para começar a outra.** Enquanto a imagem
-  é gerada, ajudantes com um modelo menor e mais barato escrevem os textos
-  dos cards, leem o site da marca ou conferem as regras do conselho, em
-  paralelo, e você acompanha cada um no painel do Claude Code. Ajudante
+- **Esperar uma coisa terminar para começar a outra.** O modelo mais
+  inteligente (Opus) pensa a peça: ângulo, cena, título, o que vai em cada
+  card. O braçal vai para ajudantes mais baratos, em paralelo: o Sonnet
+  escreve os textos a partir dessa direção, o Haiku lê o site da marca e
+  confere as regras do conselho. Você acompanha cada um no painel do
+  Claude Code, e a sessão principal revisa tudo antes de usar. Ajudante
   nunca mexe no navegador. A geração pode correr ao mesmo tempo no
   ChatGPT e no Gemini, uma em cada.
 

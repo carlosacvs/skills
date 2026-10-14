@@ -58,18 +58,25 @@ com o usuário, não só segue em silêncio:
 
 ## Ajudantes em paralelo, com modelo menor
 
-A geração fica na sessão principal, no ritmo da seção acima (no máximo uma
-por IA ao mesmo tempo). O trabalho em volta dela pode ir
-para subagentes com um modelo menor e mais barato (o Haiku, por exemplo),
-rodando ao mesmo tempo, quando a ferramenta tiver subagente:
+**Quem pensa e quem executa.** A ideia da peça é da sessão principal, no
+modelo mais inteligente disponível (o Opus, por exemplo): o ângulo, a cena,
+o título, a hierarquia do texto, o que vai em cada card e o pedido do mapa.
+Ela escreve essa direção num briefing curto e manda o braçal para
+subagentes mais baratos, rodando ao mesmo tempo, quando a ferramenta tiver
+subagente. A geração fica na sessão principal, no ritmo da seção acima (no
+máximo uma por IA ao mesmo tempo).
 
-- escrever os textos da peça ou dos cards do carrossel, a partir da ficha
-  e do pedido;
-- ler site, Instagram ou prints para a identidade (`identidade.md`),
-  dentro da regra do repositório para abrir link;
-- conferir o texto contra o checklist do conselho e a política da
-  plataforma que o repositório tiver;
-- levantar na pasta de saída e no acervo se já existe imagem que sirva.
+- **Modelo intermediário (o Sonnet, por exemplo)**, para escrever a partir
+  do briefing: o texto final de cada card, as legendas, as variações de
+  chamada. Segue a direção recebida; não inventa ângulo novo.
+- **Modelo menor (o Haiku, por exemplo)**, para o mecânico: ler site,
+  Instagram ou prints para a identidade (`identidade.md`, dentro da regra
+  do repositório para abrir link); conferir o texto contra o checklist do
+  conselho e a política da plataforma; levantar na pasta de saída e no
+  acervo se já existe imagem que sirva.
+
+A sessão principal revisa o que volta antes de usar: o que fugiu da
+direção volta para o subagente ou ela mesma acerta.
 
 Regras:
 
