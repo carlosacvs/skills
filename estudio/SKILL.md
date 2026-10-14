@@ -81,7 +81,44 @@ Foto ou cena sem texto não pergunta: é imagem pronta.
 **Nada se cria nem se sobrescreve sem perguntar.** Ficha sem link não quer
 dizer que o projeto não existe: pode ter sido criado à mão.
 
-1. **Perguntar antes, numa mensagem só**: "Já existe projeto no ChatGPT,
+### Antes de tudo: explicar, combinar o lugar e pedir as permissões
+
+Numa mensagem só, antes de criar qualquer arquivo ou abrir qualquer site:
+
+1. **O que vai acontecer**, em poucas linhas: a skill vai criar uma ficha
+   `estudio.md` com as informações da marca; abrir o ChatGPT e o Gemini no
+   navegador dele para criar o projeto e o notebook; subir algumas fotos e a
+   logo; e, a cada imagem, baixar o arquivo e guardar numa pasta.
+2. **Onde criar**, propondo o lugar e deixando trocar:
+   - a ficha: a pasta de criativos do dono, se houver; senão, a pasta da
+     marca ou a raiz do repositório;
+   - a pasta das fotos de referência (onde já estão, ou onde ele vai pôr);
+   - a pasta de saída das imagens.
+
+   Se o repositório versiona tudo no Git, avisar que imagem pesa e pode ter
+   pessoa: propor a pasta de saída fora do Git (no `.gitignore` ou na pasta
+   que o repositório já usa para isso) e perguntar.
+3. **As permissões que vão aparecer**, para ele aceitar sabendo o porquê:
+   - **Claude in Chrome**: permitir os sites chatgpt.com,
+     gemini.google.com e claude.ai, para ler a tela, digitar o pedido,
+     anexar fotos e baixar a imagem. Sugerir "sempre permitir" nesses três.
+   - **Login**: ele entra nas contas, no próprio navegador. O assistente
+     nunca digita senha nem código de verificação. Lembrar, em uma linha,
+     que uma conta dedicada a esse trabalho é mais segura que a pessoal.
+   - **Chrome, vários downloads**: na segunda imagem baixada, o Chrome
+     pergunta se o site pode baixar vários arquivos. Responder "Permitir".
+   - **Claude Code**: ler a pasta das fotos, criar a ficha, e mover a
+     imagem da pasta Downloads para a pasta de saída. Mexer fora do
+     repositório (a pasta Downloads) costuma pedir aprovação; ele pode
+     aprovar uma vez ou deixar liberado.
+   - Se o repositório tiver regra própria de autorização (comando para
+     abrir site, para gerar, para ler fora da pasta), dizer qual é e
+     esperar por ela.
+4. **O que já existe**: a pergunta do item 1 abaixo vai na mesma mensagem.
+
+Só seguir com o ok. Gravar na ficha os lugares combinados.
+
+1. **Perguntar antes, na mesma mensagem**: "Já existe projeto no ChatGPT,
    notebook no Gemini ou design system (em artifact ou no claude.ai/design)
    para <dono>? Se sim, me passe o nome ou o link." No navegador, conferir também a lista de projetos do ChatGPT
    e de notebooks do Gemini pelo nome, e a lista de design systems do
@@ -90,9 +127,8 @@ dizer que o projeto não existe: pode ter sido criado à mão.
    não subir arquivo, não trocar nada. Comparar o que está lá com o que o
    passo 4 escreveria e, se diferir, **perguntar se atualiza**, mostrando a
    diferença. Sem o sim, fica como está.
-3. Não existe: copiar `modelo-estudio.md` (nesta pasta) para o lugar da
-   ficha. Num cliente, a pasta de criativos dele; senão, a pasta da casa ou
-   a raiz.
+3. Não existe: copiar `modelo-estudio.md` (nesta pasta) para o lugar
+   combinado, e preencher nela a pasta das fotos e a pasta de saída.
 4. **Extrair o que o repositório já sabe.** Antes de perguntar qualquer
    coisa, ler as fontes do dono: AGENTS.md, CLAUDE.md, README, ficha do
    cliente, posicionamento, público, tom de voz, identidade visual, pauta e

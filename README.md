@@ -76,6 +76,12 @@ Depois, no Claude Code:
 ou peça do seu jeito: "gera uma foto minha no consultório", "monta o
 carrossel sobre sono", "cria a identidade visual da clínica".
 
+Na primeira vez, antes de criar qualquer coisa, a skill explica o que vai
+fazer, combina com você onde ficam a ficha, as fotos e as imagens geradas,
+e lista as permissões que vão aparecer (sites no Claude in Chrome, vários
+downloads no Chrome, mover arquivo da pasta Downloads) e para que serve
+cada uma. Só segue com o seu ok.
+
 ### Precisa de
 
 - Claude Code com a extensão **Claude in Chrome**;
