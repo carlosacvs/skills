@@ -1,6 +1,6 @@
 ---
 name: estudio
-description: Gera imagem com a pessoa ou a marca certa no ChatGPT (projeto) e no Gemini (notebook), pelo navegador, uma geração por vez, com o usuário na sessão. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo e o texto e a logo se montam no canvas do estúdio, editável). Cada repositório, e cada cliente dentro dele, tem a sua ficha `estudio.md` com o projeto, o notebook, o canvas, a marca, as fotos de referência, a pasta de saída e as instruções; a skill acha a ficha da tarefa e, se não houver, monta tudo na primeira vez. Use quando o usuário disser "monta o post", "faz o carrossel", "gera só o fundo", "monta no estúdio", "capa", "banner", ou quando o usuário disser "gera imagem", "gera uma foto da <pessoa>", "faz uma cena", "imagem para o site", "imagem para o post", "fundo para o carrossel", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria o projeto de imagem", "cria a identidade visual", "não tenho logo nem cores", "monta o design system", ou rodar /estudio.
+description: Gera imagem com a pessoa ou a marca certa no ChatGPT (projeto) e no Gemini (notebook), pelo navegador, uma geração por vez em cada IA (no máximo uma no ChatGPT e uma no Gemini ao mesmo tempo), com o usuário na sessão. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo e o texto e a logo se montam no canvas do estúdio, editável). Cada repositório, e cada cliente dentro dele, tem a sua ficha `estudio.md` com o projeto, o notebook, o canvas, a marca, as fotos de referência, a pasta de saída e as instruções; a skill acha a ficha da tarefa e, se não houver, monta tudo na primeira vez. Use quando o usuário disser "monta o post", "faz o carrossel", "gera só o fundo", "monta no estúdio", "capa", "banner", ou quando o usuário disser "gera imagem", "gera uma foto da <pessoa>", "faz uma cena", "imagem para o site", "imagem para o post", "fundo para o carrossel", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria o projeto de imagem", "cria a identidade visual", "não tenho logo nem cores", "monta o design system", ou rodar /estudio.
 ---
 
 # estudio
@@ -18,7 +18,8 @@ pessoa é profissional regulada, seguir o checklist do conselho dela.
 
 Sempre, em qualquer repositório:
 
-- uma geração por vez, no ritmo de uma pessoa, com o usuário na sessão;
+- uma geração por vez em cada IA (no máximo uma no ChatGPT e uma no
+  Gemini ao mesmo tempo), no ritmo de uma pessoa, com o usuário na sessão;
 - nunca em lote agendado, nunca por robô headless: só pelo navegador logado
   do usuário (Claude in Chrome);
 - nada de foto de terceiro sem o usuário dizer de quem é; o assistente não
@@ -31,13 +32,15 @@ podem limitar ou suspender conta com uso que pareça robô. A skill fala disso
 com o usuário, não só segue em silêncio:
 
 - **No começo de cada sessão de geração**, uma linha: "Vou no ritmo de uma
-  pessoa, uma imagem por vez. Se o ChatGPT ou o Gemini mostrarem qualquer
-  aviso, eu paro e te chamo." Na primeira vez, junto, a sugestão de usar
+  pessoa, uma imagem por vez em cada IA. Se o ChatGPT ou o Gemini
+  mostrarem qualquer aviso, eu paro e te chamo." Na primeira vez, junto, a sugestão de usar
   uma conta dedicada a esse trabalho, não a conta pessoal do dia a dia.
-- **Ritmo**: esperar a imagem terminar antes do próximo pedido; nunca duas
-  abas gerando ao mesmo tempo; nunca reenviar o mesmo pedido em sequência.
+- **Ritmo**: em cada IA, esperar a imagem terminar antes do próximo
+  pedido. Pode haver **uma geração no ChatGPT e uma no Gemini ao mesmo
+  tempo**, cada uma na sua aba; nunca duas na mesma IA (duas abas do
+  ChatGPT, por exemplo). Nunca reenviar o mesmo pedido em sequência.
   Padrão da skill, ajustável na ficha: depois de **10 imagens na sessão**,
-  sugerir uma pausa e perguntar se segue.
+  **somando as duas IAs**, sugerir uma pausa e perguntar se segue.
 - **Pedido grande** (carrossel inteiro, lote de fotos para site): dizer
   antes quantas gerações vão ser e sugerir dividir em mais de um dia.
 - **Sinal de alerta, para na hora e avisa**: captcha ou "confirme que você
@@ -55,7 +58,8 @@ com o usuário, não só segue em silêncio:
 
 ## Ajudantes em paralelo, com modelo menor
 
-A geração é uma só, na sessão principal. O trabalho em volta dela pode ir
+A geração fica na sessão principal, no ritmo da seção acima (no máximo uma
+por IA ao mesmo tempo). O trabalho em volta dela pode ir
 para subagentes com um modelo menor e mais barato (o Haiku, por exemplo),
 rodando ao mesmo tempo, quando a ferramenta tiver subagente:
 
@@ -272,7 +276,9 @@ se misturam, se apagam ou se copiam um no outro.
    ficha tem mais de um destino, perguntar numa linha só, com os destinos
    da tabela numerados: "Onde gero? (1) ChatGPT, <PROJETO>; (2) ChatGPT,
    <PROJETO> 2; (3) Gemini, notebook <PROJETO>". Vários números valem: o
-   mesmo pedido roda em cada destino escolhido, um depois do outro. A
+   mesmo pedido roda em cada destino escolhido: um no ChatGPT e um no
+   Gemini podem ir ao mesmo tempo; dois destinos na mesma IA, um depois
+   do outro. A
    ficha não guarda destino preferido. Abrir o link do destino e começar
    conversa nova dentro dele. **Nunca gerar fora do destino** (conversa
    avulsa, outro projeto) sem perguntar: se o destino travar (mais de 5

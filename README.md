@@ -60,7 +60,8 @@ editáveis direto no Claude Design. O mapa fica na página Referência.
   é gerada, ajudantes com um modelo menor e mais barato escrevem os textos
   dos cards, leem o site da marca ou conferem as regras do conselho, em
   paralelo, e você acompanha cada um no painel do Claude Code. Ajudante
-  nunca mexe no navegador: a geração continua uma por vez.
+  nunca mexe no navegador. A geração pode correr ao mesmo tempo no
+  ChatGPT e no Gemini, uma em cada.
 
 ### Quem não tem identidade visual
 
@@ -127,10 +128,11 @@ Leia antes de usar.
 pedir as imagens. Os termos de uso da OpenAI e do Google restringem o uso
 automatizado das versões de chat dos produtos, e as duas empresas podem
 limitar, suspender ou encerrar contas que considerem em desacordo. A skill
-foi feita para reduzir esse risco: uma geração por vez, no ritmo de uma
+foi feita para reduzir esse risco: uma geração por vez em cada IA (no
+máximo uma no ChatGPT e uma no Gemini ao mesmo tempo), no ritmo de uma
 pessoa, com você na sessão, sem lote agendado e sem robô rodando sozinho.
 Ela também avisa no começo de cada sessão, sugere pausa depois de 10
-imagens, avisa antes de pedido grande e **para na hora** se aparecer captcha,
+imagens somando as duas IAs, avisa antes de pedido grande e **para na hora** se aparecer captcha,
 aviso de atividade incomum, limite de uso ou pedido de verificação. O
 freio é aviso, não trava: se você mandar seguir, ela segue. Isso
 reduz o risco, mas não o elimina, e a decisão de usar é sua.
