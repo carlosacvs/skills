@@ -130,7 +130,11 @@ o pedido já diga:
 
 - **(1) Completa**: a IA gera a peça inteira, com texto e composição. É
   prévia, não peça final: o texto da IA não se corrige e a resolução
-  costuma ser baixa. Salvar como `AAAA-MM-DD-<peca>-mapa.png`.
+  costuma ser baixa. Salvar como `AAAA-MM-DD-<peca>-mapa-<gpt|gemini>.png`
+  (com dois mapas da mesma IA, `-2` no fim). Mapa é sempre da sessão
+  principal: subagente não gera. Com mapa das duas IAs, os dois vão para a
+  página Referência do canvas, lado a lado, e o usuário escolhe um; o
+  fundo se pede na conversa do escolhido.
 - **(2) Só o fundo**: segue `montagem.md`.
 - **(3) As duas**: gerar a completa, mostrar, e com o ok pedir o fundo na
   mesma conversa: "o mesmo fundo, sem nenhum texto, sem logo, com as áreas
