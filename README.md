@@ -18,6 +18,11 @@ editável.
 
 ![Como a skill funciona](docs/fluxo.svg)
 
+### Telas
+
+🚧 **Em breve.** Capturas da skill em uso, com uma marca de demonstração:
+a ficha, o projeto no ChatGPT, o mapa e a peça montada no canvas.
+
 ### O que ela resolve
 
 - **Rosto que muda a cada imagem.** A skill anexa 2 ou 3 fotos de
