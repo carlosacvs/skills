@@ -133,3 +133,11 @@ imagem em algum lugar, a skill obedece.
 | `estudio/identidade.md` | identidade visual para quem não tem |
 | `estudio/montagem.md` | fundo + montagem no canvas |
 | `estudio/modelo-estudio.md` | modelo da ficha de cada pessoa ou marca |
+
+---
+
+## Licença
+
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): pode usar,
+copiar e adaptar, citando o autor (Carlos Sarmento). Não pode vender nem
+usar como produto ou serviço pago. Texto completo em [LICENSE](LICENSE).
