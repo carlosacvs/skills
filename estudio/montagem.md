@@ -47,17 +47,31 @@ saída da ficha.
    canvas por dono e por trimestre**: o canvas tem limite de tamanho (uns
    40 posts). O link antigo fica na ficha, em Canvas anteriores.
 2. Páginas do canvas: **Em produção** (a peça da vez), **Referência**
-   (fundos e prévias que serviram de ideia) e **uma página por peça
+   (mapas, fundos e prévias que serviram de ideia) e **uma página por peça
    aprovada**, com a data. Páginas antigas não se releem.
-3. Subir o fundo como asset do canvas. Montar a tela no tamanho final com o
-   fundo, o texto e a logo, tudo pelos tokens e assets do design system;
-   nada de cor ou fonte digitada à mão.
+3. **Duas pranchas por peça, do mesmo tamanho** (o tamanho final):
+   - **Mapa**, na página Referência: a versão completa que a IA gerou, com
+     texto, só como imagem, título "Mapa do <ChatGPT|Gemini> · <DD/MM>".
+     Não se edita: é o desenho de onde cada coisa fica. Com mapa das duas
+     IAs, uma prancha para cada, lado a lado, e o usuário escolhe. O fundo
+     se pede **na mesma conversa do mapa escolhido**, para sair igual.
+   - **Peça**, na página Em produção: a construção real, título
+     "<Peça> · <assunto> · <DD/MM>". Embaixo, o fundo gerado (asset do
+     canvas) cobrindo a prancha; por cima, como elementos de verdade e não
+     como imagem: título, apoio, chamada, botão, seta e logo, nas posições
+     do mapa. Onde o fundo atrapalha a leitura, uma faixa em degradê na cor
+     de fundo da marca. Cor, fonte e logo pelos tokens e assets do design
+     system; nada digitado à mão. O que o usuário pode querer trocar (cor
+     do botão, por exemplo) vira opção editável, com as cores da marca.
+
+   Sem mapa (modo só o fundo), só a prancha Peça.
 4. **Carrossel**: em cima, a tela larga (1080×N por 1350) com o texto
    corrido; embaixo, os cards já fatiados em 1080x1350, com 8 px entre eles,
    espelhando a tela larga, para mudar junto.
 5. Mostrar a prévia. O usuário edita direto no canvas ou pede o ajuste; o
    assistente ajusta no canvas, não gera o fundo de novo, salvo se o
-   problema for o fundo.
+   problema for o fundo. Antes de exportar, reler a prancha do canvas: o
+   que o usuário mudou à mão vale e vai para o guia de estilo (passo 4).
 
 ## 4. Fechar
 
