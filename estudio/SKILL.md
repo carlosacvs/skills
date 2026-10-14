@@ -53,6 +53,36 @@ com o usuário, não só segue em silêncio:
   mais, e ele escolhe outro destino ou outra hora.
 - **O usuário digita a senha e os códigos**, sempre. O assistente nunca.
 
+## Ajudantes em paralelo, com modelo menor
+
+A geração é uma só, na sessão principal. O trabalho em volta dela pode ir
+para subagentes com um modelo menor e mais barato (o Haiku, por exemplo),
+rodando ao mesmo tempo, quando a ferramenta tiver subagente:
+
+- escrever os textos da peça ou dos cards do carrossel, a partir da ficha
+  e do pedido;
+- ler site, Instagram ou prints para a identidade (`identidade.md`),
+  dentro da regra do repositório para abrir link;
+- conferir o texto contra o checklist do conselho e a política da
+  plataforma que o repositório tiver;
+- levantar na pasta de saída e no acervo se já existe imagem que sirva.
+
+Regras:
+
+- **Subagente nunca usa o navegador**: não abre ChatGPT, Gemini nem
+  canvas, não gera e não baixa imagem. Navegador é só da sessão principal.
+- Cada subagente recebe só o que a tarefa dele precisa; num cliente, só a
+  pasta dele.
+- Subagente não escreve na ficha nem no canvas: devolve o resultado, e a
+  sessão principal confere, decide e registra. Texto escrito por subagente
+  é texto do assistente e se declara como tal.
+- **Mostrar ao usuário** o que está rodando, numa linha ao disparar
+  ("rodando em paralelo: textos dos 3 cards, conferência do conselho") e o
+  que cada um devolveu. Ele acompanha cada subagente no painel da
+  ferramenta.
+- Tarefa curta (um título, uma conferência rápida): fazer direto, sem
+  subagente.
+
 ## 1. Achar a ficha
 
 Partir da pasta da tarefa e subir até a raiz do repositório. Em cada pasta,

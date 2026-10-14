@@ -56,6 +56,12 @@ editáveis direto no Claude Design. O mapa fica na página Referência.
   a pasta de saída e o que já se aprendeu ("o cabelo agora é curto", "não
   gerar jaleco").
 
+- **Esperar uma coisa terminar para começar a outra.** Enquanto a imagem
+  é gerada, ajudantes com um modelo menor e mais barato escrevem os textos
+  dos cards, leem o site da marca ou conferem as regras do conselho, em
+  paralelo, e você acompanha cada um no painel do Claude Code. Ajudante
+  nunca mexe no navegador: a geração continua uma por vez.
+
 ### Quem não tem identidade visual
 
 Se a marca não tem cor, fonte nem logo definidas, a skill monta uma antes:
