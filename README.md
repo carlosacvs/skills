@@ -20,8 +20,27 @@ editável.
 
 ### Telas
 
-🚧 **Em breve.** Capturas da skill em uso, com uma marca de demonstração:
-a ficha, o projeto no ChatGPT, o mapa e a peça montada no canvas.
+Um post de exemplo, do pedido ao canvas, com a marca fictícia "Clínica
+Exemplo".
+
+**1. A ficha da marca.** Projeto, notebook, pastas, design system, o que
+repetir em todo pedido e o que já se aprendeu.
+
+![Ficha estudio.md](docs/telas/1-ficha.png)
+
+**2. O mapa.** A IA gera a peça inteira, com texto, só para servir de
+desenho de onde cada coisa fica.
+
+![Mapa gerado no ChatGPT](docs/telas/2-chatgpt-mapa.jpg)
+
+**3. O fundo.** Na mesma conversa, a mesma cena sem nenhuma letra.
+
+![Fundo sem texto no ChatGPT](docs/telas/3-chatgpt-fundo.jpg)
+
+**4. A peça no canvas.** O fundo embaixo, texto, botão e marca por cima,
+editáveis direto no Claude Design. O mapa fica na página Referência.
+
+![Peça montada no canvas do Claude Design](docs/telas/4-canvas-peca.jpg)
 
 ### O que ela resolve
 
@@ -133,6 +152,19 @@ publicar. Logo gerada por IA não deve ser usada como marca para registro.
 **Regras do seu repositório vêm primeiro.** Se o seu `CLAUDE.md` ou
 `AGENTS.md` exige autorização para abrir link, para gerar ou para salvar
 imagem em algum lugar, a skill obedece.
+
+### Em breve
+
+🚧 Próximos passos da skill:
+
+- **Motion**: a peça aprovada vira vídeo curto (7 a 15 s) para story e
+  Reels;
+- **Todos os formatos de uma vez**: o post aprovado sai também em story
+  9:16, quadrado 1:1 e capa 16:9, reaproveitando fundo e texto;
+- **Variações para teste de anúncio**: três versões mudando uma coisa só
+  (título, fundo ou chamada), já nomeadas para comparar;
+- **Acervo**: as imagens geradas com etiquetas, para reaproveitar antes
+  de gerar outra.
 
 ### Arquivos
 
