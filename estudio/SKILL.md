@@ -1,6 +1,6 @@
 ---
 name: estudio
-description: Gera imagem com a pessoa ou a marca certa no ChatGPT (projeto) e no Gemini (notebook), pelo navegador, uma geração por vez, com o usuário na sessão. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo e o texto e a logo se montam no canvas do estúdio, editável). Cada repositório, e cada cliente dentro dele, tem a sua ficha `estudio.md` com o projeto, o notebook, o canvas, a marca, as fotos de referência, a pasta de saída e as instruções; a skill acha a ficha da tarefa e, se não houver, monta tudo na primeira vez. Use quando o usuário disser "monta o post", "faz o carrossel", "gera só o fundo", "monta no estúdio", "capa", "banner", ou quando o usuário disser "gera imagem", "gera uma foto da <pessoa>", "faz uma cena", "imagem para o site", "imagem para o post", "fundo para o carrossel", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria o projeto de imagem", ou rodar /estudio.
+description: Gera imagem com a pessoa ou a marca certa no ChatGPT (projeto) e no Gemini (notebook), pelo navegador, uma geração por vez, com o usuário na sessão. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo e o texto e a logo se montam no canvas do estúdio, editável). Cada repositório, e cada cliente dentro dele, tem a sua ficha `estudio.md` com o projeto, o notebook, o canvas, a marca, as fotos de referência, a pasta de saída e as instruções; a skill acha a ficha da tarefa e, se não houver, monta tudo na primeira vez. Use quando o usuário disser "monta o post", "faz o carrossel", "gera só o fundo", "monta no estúdio", "capa", "banner", ou quando o usuário disser "gera imagem", "gera uma foto da <pessoa>", "faz uma cena", "imagem para o site", "imagem para o post", "fundo para o carrossel", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria o projeto de imagem", "cria a identidade visual", "não tenho logo nem cores", "monta o design system", ou rodar /estudio.
 ---
 
 # estudio
@@ -166,14 +166,17 @@ se misturam, se apagam ou se copiam um no outro.
   ficha. Nada se apaga nem se altera lá nesse passo.
 - Dono sem design system: criar na primeira peça com texto, a partir da
   identidade que o repositório tiver, depois da pergunta do passo 2.1.
+  **Sem identidade visual** (sem cor, fonte ou logo definidas, ou o
+  usuário pede "cria a identidade"): seguir `identidade.md` (nesta pasta)
+  antes de criar o design system.
 
 ## 3. Gerar
 
 1. **Onde gerar é escolha do usuário, na hora.** Se o pedido já diz
-   ("no ChatGPT", "no Gemini", "no MARIA SILVA 2"), seguir. Se não diz e a
+   ("no ChatGPT", "no Gemini", "no <PROJETO> 2"), seguir. Se não diz e a
    ficha tem mais de um destino, perguntar numa linha só, com os destinos
-   da tabela numerados: "Onde gero? (1) ChatGPT, MARIA SILVA; (2) ChatGPT,
-   MARIA SILVA 2; (3) Gemini, notebook Maria Silva". Vários números valem: o
+   da tabela numerados: "Onde gero? (1) ChatGPT, <PROJETO>; (2) ChatGPT,
+   <PROJETO> 2; (3) Gemini, notebook <PROJETO>". Vários números valem: o
    mesmo pedido roda em cada destino escolhido, um depois do outro. A
    ficha não guarda destino preferido. Abrir o link do destino e começar
    conversa nova dentro dele. **Nunca gerar fora do destino** (conversa
