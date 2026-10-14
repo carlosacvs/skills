@@ -24,6 +24,29 @@ Sempre, em qualquer repositório:
 - nada de foto de terceiro sem o usuário dizer de quem é; o assistente não
   reconhece pessoa pelo rosto.
 
+## Com calma, para não perder a conta
+
+O ChatGPT e o Gemini não foram feitos para serem operados por assistente, e
+podem limitar ou suspender conta com uso que pareça robô. A skill fala disso
+com o usuário, não só segue em silêncio:
+
+- **No começo de cada sessão de geração**, uma linha: "Vou no ritmo de uma
+  pessoa, uma imagem por vez. Se o ChatGPT ou o Gemini mostrarem qualquer
+  aviso, eu paro e te chamo." Na primeira vez, junto, a sugestão de usar
+  uma conta dedicada a esse trabalho, não a conta pessoal do dia a dia.
+- **Ritmo**: esperar a imagem terminar antes do próximo pedido; nunca duas
+  abas gerando ao mesmo tempo; nunca reenviar o mesmo pedido em sequência.
+  Padrão da skill, ajustável na ficha: depois de **10 imagens na sessão**,
+  sugerir uma pausa e perguntar se segue.
+- **Pedido grande** (carrossel inteiro, lote de fotos para site): dizer
+  antes quantas gerações vão ser e sugerir dividir em mais de um dia.
+- **Sinal de alerta, para na hora e avisa**: captcha ou "confirme que você
+  é humano"; "atividade incomum"; limite de uso atingido ("tente de novo em
+  X horas"); pedido de novo login ou verificação; erro repetido na mesma
+  geração. Não tentar contornar, não trocar de conta sozinho e não insistir:
+  dizer o que apareceu e esperar o usuário decidir.
+- **O usuário digita a senha e os códigos**, sempre. O assistente nunca.
+
 ## 1. Achar a ficha
 
 Partir da pasta da tarefa e subir até a raiz do repositório. Em cada pasta,

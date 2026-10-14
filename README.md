@@ -104,7 +104,10 @@ automatizado das versões de chat dos produtos, e as duas empresas podem
 limitar, suspender ou encerrar contas que considerem em desacordo. A skill
 foi feita para reduzir esse risco: uma geração por vez, no ritmo de uma
 pessoa, com você na sessão, sem lote agendado e sem robô rodando sozinho.
-Isso reduz o risco, mas não o elimina, e a decisão de usar é sua.
+Ela também avisa no começo de cada sessão, sugere pausa depois de 10
+imagens, avisa antes de pedido grande e **para na hora** se aparecer captcha,
+aviso de atividade incomum, limite de uso ou pedido de verificação. Isso
+reduz o risco, mas não o elimina, e a decisão de usar é sua.
 
 Por isso, vale considerar uma conta dedicada a esse trabalho, separada da
 conta que guarda o seu histórico, seus projetos pessoais e o seu acesso de
