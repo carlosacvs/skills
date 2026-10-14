@@ -45,6 +45,12 @@ com o usuário, não só segue em silêncio:
   X horas"); pedido de novo login ou verificação; erro repetido na mesma
   geração. Não tentar contornar, não trocar de conta sozinho e não insistir:
   dizer o que apareceu e esperar o usuário decidir.
+- **O usuário manda seguir, segue.** O freio é aviso, não trava: a conta é
+  dele e a decisão também. Disse "segue", "continua" ou "pode ir": seguir
+  sem repetir o alerta pelo mesmo motivo na mesma sessão (a pausa das 10
+  volta só nas próximas 10). Captcha, verificação e login quem resolve é o
+  usuário, na tela; resolvido, seguir. Limite de uso atingido: ali não dá
+  mais, e ele escolhe outro destino ou outra hora.
 - **O usuário digita a senha e os códigos**, sempre. O assistente nunca.
 
 ## 1. Achar a ficha

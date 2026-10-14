@@ -16,7 +16,7 @@ que não pode aparecer, o tamanho do post. Peça com texto não sai com letra
 torta de IA: a IA faz só o fundo, e o texto e a logo entram num canvas
 editável.
 
-![Como a skill funciona](docs/fluxo.svg)
+![Como a skill funciona](docs/fluxo.png)
 
 ### Telas
 
@@ -106,7 +106,8 @@ foi feita para reduzir esse risco: uma geração por vez, no ritmo de uma
 pessoa, com você na sessão, sem lote agendado e sem robô rodando sozinho.
 Ela também avisa no começo de cada sessão, sugere pausa depois de 10
 imagens, avisa antes de pedido grande e **para na hora** se aparecer captcha,
-aviso de atividade incomum, limite de uso ou pedido de verificação. Isso
+aviso de atividade incomum, limite de uso ou pedido de verificação. O
+freio é aviso, não trava: se você mandar seguir, ela segue. Isso
 reduz o risco, mas não o elimina, e a decisão de usar é sua.
 
 Por isso, vale considerar uma conta dedicada a esse trabalho, separada da
