@@ -1,3 +1,5 @@
+![Skill estudio: imagem de marca no ChatGPT e no Gemini, com o texto editável no canvas](docs/capa.jpg)
+
 # Skills
 
 Skills para o [Claude Code](https://claude.com/claude-code).
