@@ -68,7 +68,11 @@ saída da ficha.
 4. **Carrossel**: em cima, a tela larga (1080×N por 1350) com o texto
    corrido; embaixo, os cards já fatiados em 1080x1350, com 8 px entre eles,
    espelhando a tela larga, para mudar junto.
-5. Mostrar a prévia. O usuário edita direto no canvas ou pede o ajuste; o
+5. **Abrir o canvas para o usuário, sempre**, assim que a peça estiver
+   montada nele: ferramenta Artifact, ação `open`, com o link do canvas
+   da ficha. Uma vez por peça: nos ajustes seguintes ele já está aberto
+   na tela e não se abre de novo. Só mandar o link não basta. O usuário
+   edita direto no canvas ou pede o ajuste; o
    assistente ajusta no canvas, não gera o fundo de novo, salvo se o
    problema for o fundo. Antes de exportar, reler a prancha do canvas: o
    que o usuário mudou à mão vale e vai para o guia de estilo (passo 4).
@@ -76,7 +80,18 @@ saída da ficha.
 ## 4. Fechar
 
 - Antes de mostrar como pronta, passar o que o repositório exige para peça
-  publicada (checklist do conselho, política da plataforma, campo vazio).
+  publicada (checklist do conselho, política da plataforma, campo vazio) e
+  este checklist, que vale para qualquer marca:
+  - texto relido palavra por palavra: ortografia, acento, número, nome;
+  - nada de texto importante no topo e no rodapé que a interface do
+    Instagram cobre (uns 250 px em cima e 320 px embaixo no story 9:16;
+    no feed, margem de 60 px nas bordas);
+  - contraste do texto sobre o fundo de pelo menos 4,5:1; onde falhar,
+    faixa em degradê;
+  - logo com área livre ao redor e nunca esticada;
+  - o fundo não ganhou letra, marca d'água ou mão errada que passou
+    despercebida no mapa;
+  - exportado no tamanho final exato, sem borda branca.
 - Aprovada: exportar os PNGs no tamanho final para a pasta de saída da
   ficha, `AAAA-MM-DD-<peca>-<n>.png`, e mover a peça para uma página de
   aprovadas no canvas. Sem exportação pelo canvas, renderizar o HTML da

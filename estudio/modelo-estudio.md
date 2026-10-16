@@ -24,6 +24,13 @@ Pasta: [a preencher]
 
 Pasta: [a preencher]
 
+## Ritmo
+
+| | |
+|---|---|
+| Downloads | `~/Downloads` (a pasta onde o Chrome baixa) |
+| Pausa | a cada 10 imagens na sessão, somando as duas IAs |
+
 ## Montagem (fundo + texto no canvas)
 
 | | |

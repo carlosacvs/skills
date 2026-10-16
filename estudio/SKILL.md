@@ -1,9 +1,23 @@
 ---
 name: estudio
-description: Gera imagem com a pessoa ou a marca certa no ChatGPT (projeto) e no Gemini (notebook), pelo navegador, uma geração por vez em cada IA (no máximo uma no ChatGPT e uma no Gemini ao mesmo tempo), com o usuário na sessão. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo e o texto e a logo se montam no canvas do estúdio, editável). Cada repositório, e cada cliente dentro dele, tem a sua ficha `estudio.md` com o projeto, o notebook, o canvas, a marca, as fotos de referência, a pasta de saída e as instruções; a skill acha a ficha da tarefa e, se não houver, monta tudo na primeira vez. Use quando o usuário disser "monta o post", "faz o carrossel", "gera só o fundo", "monta no estúdio", "capa", "banner", ou quando o usuário disser "gera imagem", "gera uma foto da <pessoa>", "faz uma cena", "imagem para o site", "imagem para o post", "fundo para o carrossel", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria o projeto de imagem", "cria a identidade visual", "não tenho logo nem cores", "monta o design system", ou rodar /estudio.
+description: Gera imagem e peça de marca no ChatGPT (projeto) e no Gemini (notebook), pelo navegador do usuário, uma geração por vez em cada IA. Dois modos, imagem pronta ou fundo + montagem (a IA gera só o fundo; texto e logo entram no canvas, editáveis). Cada pessoa ou marca tem uma ficha `estudio.md`; sem ficha, monta tudo na primeira vez, inclusive identidade visual e design system. Use quando o usuário disser "gera imagem", "foto da <pessoa>", "monta o post", "carrossel", "story", "capa", "banner", "gera só o fundo", "estúdio", "pede no ChatGPT", "pede no Gemini", "cria a identidade visual", "monta o design system", ou rodar /estudio.
+version: 1.2.0
 ---
 
 # estudio
+
+Nomes usados nesta skill, sempre os mesmos:
+
+- **projeto**: o projeto no ChatGPT; **notebook**: o notebook no Gemini,
+  que é o equivalente do projeto (o Gem foi testado e não serviu: não
+  segura instrução nem arquivo do mesmo jeito);
+- **design system**: o artifact do tipo Design System no claude.ai. Manda
+  em cor, fonte e logo;
+- **canvas**: o artifact de design onde a peça se monta, aberto no Claude
+  Design;
+- **espelho**: a cópia do design system que vive em claude.ai/design, só
+  lida e escrita pelo `/design-sync`;
+- **ficha**: o `estudio.md` de cada pessoa ou marca.
 
 Uma skill para qualquer repositório. Ela não sabe de quem é a imagem: quem
 sabe é a **ficha** `estudio.md` do lugar onde a tarefa está.
@@ -33,13 +47,19 @@ com o usuário, não só segue em silêncio:
 
 - **No começo de cada sessão de geração**, uma linha: "Vou no ritmo de uma
   pessoa, uma imagem por vez em cada IA. Se o ChatGPT ou o Gemini
-  mostrarem qualquer aviso, eu paro e te chamo." Na primeira vez, junto, a sugestão de usar
-  uma conta dedicada a esse trabalho, não a conta pessoal do dia a dia.
+  mostrarem qualquer aviso, eu paro e te chamo." Na primeira vez, junto, a
+  sugestão de usar uma conta dedicada a esse trabalho, não a conta pessoal
+  do dia a dia, e o caminho para desligar o uso dos dados para treino nas
+  duas contas (observado em 2026-10, os menus mudam): no ChatGPT,
+  Configurações › Controles de dados › "Melhorar o modelo para todos"; no
+  Gemini, Atividade nos apps do Gemini. O usuário decide; a skill só
+  aponta.
 - **Ritmo**: em cada IA, esperar a imagem terminar antes do próximo
   pedido. Pode haver **uma geração no ChatGPT e uma no Gemini ao mesmo
   tempo**, cada uma na sua aba; nunca duas na mesma IA (duas abas do
   ChatGPT, por exemplo). Nunca reenviar o mesmo pedido em sequência.
-  Padrão da skill, ajustável na ficha: depois de **10 imagens na sessão**,
+  Padrão da skill, ajustável no campo **Pausa** da ficha: depois de **10
+  imagens na sessão**,
   **somando as duas IAs**, sugerir uma pausa e perguntar se segue.
 - **Pedido grande** (carrossel inteiro, lote de fotos para site): dizer
   antes quantas gerações vão ser e sugerir dividir em mais de um dia.
@@ -72,8 +92,8 @@ máximo uma por IA ao mesmo tempo).
 - **Modelo menor (o Haiku, por exemplo)**, para o mecânico: ler site,
   Instagram ou prints para a identidade (`identidade.md`, dentro da regra
   do repositório para abrir link); conferir o texto contra o checklist do
-  conselho e a política da plataforma; levantar na pasta de saída e no
-  acervo se já existe imagem que sirva.
+  conselho e a política da plataforma; levantar na pasta de saída se já
+  existe imagem que sirva.
 
 A sessão principal revisa o que volta antes de usar: o que fugiu da
 direção volta para o subagente ou ela mesma acerta.
@@ -107,14 +127,17 @@ pasta vizinha: a ficha de um cliente não serve para outro. Na prática:
   `estudio.md` daquela pasta ou da raiz.
 
 ```sh
-d="<caminho-absoluto-da-pasta-da-tarefa>"; r=$(git -C "$d" rev-parse --show-toplevel)
+d="<caminho-absoluto-da-pasta-da-tarefa>"
+r=$(git -C "$d" rev-parse --show-toplevel 2>/dev/null || echo "$HOME")
 while :; do
   for f in "$d/estudio.md" "$d/04-criativos/estudio.md" "$d/criativos/estudio.md"; do
     [ -f "$f" ] && echo "$f" && break 2; done
-  [ "$d" = "$r" ] && break; d=$(dirname "$d"); done
+  { [ "$d" = "$r" ] || [ "$d" = "$HOME" ] || [ "$d" = "/" ]; } && break
+  d=$(dirname "$d"); done
 ```
 
-Sem pasta de tarefa clara, perguntar em uma linha de quem é a imagem.
+Fora de repositório Git, a busca para na pasta do usuário. Sem pasta de
+tarefa clara, perguntar em uma linha de quem é a imagem.
 
 Achou: ler a ficha inteira (instruções, fotos, aprendizados) e ir ao passo 3.
 Não achou: passo 2.
@@ -133,7 +156,11 @@ o pedido já diga:
 
 > "Como fazemos? (1) versão completa, já com os textos, para servir de
 > referência e mapa; (2) só o fundo, para montar no estúdio; (3) as duas:
-> primeiro a completa como mapa, depois o fundo seguindo ela."
+> primeiro a completa como mapa, depois o fundo seguindo ela. Sem
+> resposta, faço o mapa."
+
+**Padrão: o mapa (1).** Se o usuário não escolher (respondeu outra coisa,
+mandou seguir, ou a pergunta ficou sem resposta), gerar o mapa e seguir.
 
 - **(1) Completa**: a IA gera a peça inteira, com texto e composição. É
   prévia, não peça final: o texto da IA não se corrige e a resolução
@@ -144,9 +171,30 @@ o pedido já diga:
   fundo se pede na conversa do escolhido.
 - **(2) Só o fundo**: segue `montagem.md`.
 - **(3) As duas**: gerar a completa, mostrar, e com o ok pedir o fundo na
-  mesma conversa: "o mesmo fundo, sem nenhum texto, sem logo, com as áreas
-  do texto livres". A completa vai para a página Referência do canvas e
-  guia onde cada texto entra na montagem.
+  mesma conversa (seção "Fundo igual ao mapa"). A completa vai para a
+  página Referência do canvas e guia onde cada texto entra na montagem.
+
+### Fundo igual ao mapa
+
+O fundo serve para montar por cima do mapa, então tem que sair **a mesma
+imagem**: mesma cena, mesmo enquadramento, mesma luz. Pedido longo, que
+descreve a cena de novo, faz a IA criar outra imagem e a montagem deixa de
+bater. Por isso o pedido é curto e vai **na mesma conversa do mapa**:
+
+> Gere novamente a primeira imagem (o post), tirando só os textos do
+> post: título, apoio, botão e logo. Mantenha tudo o que faz parte da
+> cena, inclusive o que está escrito nela.
+
+Regras da frase (testado em 2026-10-16):
+
+- **"Sem os textos", sozinho, apaga demais**: tira também o que está
+  escrito dentro da cena (mensagens num celular, placa, tela de
+  computador) e a cena perde o sentido. Dizer **quais textos saem** (os
+  do post) e que o resto da cena fica.
+- **Apontar o mapa** ("a primeira imagem", "o post"): numa conversa com
+  mais de uma imagem, a IA pega a última.
+- Saiu diferente do mapa: pedir de novo na mesma conversa dizendo o que
+  mudou, nunca reescrever a cena.
 
 Foto ou cena sem texto não pergunta: é imagem pronta.
 
@@ -159,20 +207,22 @@ dizer que o projeto não existe: pode ter sido criado à mão.
 
 Numa mensagem só, antes de criar qualquer arquivo ou abrir qualquer site:
 
-1. **O que vai acontecer**, em poucas linhas: a skill vai criar uma ficha
+a. **O que vai acontecer**, em poucas linhas: a skill vai criar uma ficha
    `estudio.md` com as informações da marca; abrir o ChatGPT e o Gemini no
    navegador dele para criar o projeto e o notebook; subir algumas fotos e a
    logo; e, a cada imagem, baixar o arquivo e guardar numa pasta.
-2. **Onde criar**, propondo o lugar e deixando trocar:
+b. **Onde criar**, propondo o lugar e deixando trocar:
    - a ficha: a pasta de criativos do dono, se houver; senão, a pasta da
      marca ou a raiz do repositório;
    - a pasta das fotos de referência (onde já estão, ou onde ele vai pôr);
-   - a pasta de saída das imagens.
+   - a pasta de saída das imagens;
+   - a pasta onde o Chrome baixa (em geral `~/Downloads`; se for outra,
+     gravar na ficha, no campo Downloads).
 
    Se o repositório versiona tudo no Git, avisar que imagem pesa e pode ter
    pessoa: propor a pasta de saída fora do Git (no `.gitignore` ou na pasta
    que o repositório já usa para isso) e perguntar.
-3. **As permissões que vão aparecer**, para ele aceitar sabendo o porquê:
+c. **As permissões que vão aparecer**, para ele aceitar sabendo o porquê:
    - **Claude in Chrome**: permitir os sites chatgpt.com,
      gemini.google.com e claude.ai, para ler a tela, digitar o pedido,
      anexar fotos e baixar a imagem. Sugerir "sempre permitir" nesses três.
@@ -182,13 +232,14 @@ Numa mensagem só, antes de criar qualquer arquivo ou abrir qualquer site:
    - **Chrome, vários downloads**: na segunda imagem baixada, o Chrome
      pergunta se o site pode baixar vários arquivos. Responder "Permitir".
    - **Claude Code**: ler a pasta das fotos, criar a ficha, e mover a
-     imagem da pasta Downloads para a pasta de saída. Mexer fora do
-     repositório (a pasta Downloads) costuma pedir aprovação; ele pode
+     imagem da pasta de downloads para a pasta de saída. Mexer fora do
+     repositório (a pasta de downloads) costuma pedir aprovação; ele pode
      aprovar uma vez ou deixar liberado.
    - Se o repositório tiver regra própria de autorização (comando para
      abrir site, para gerar, para ler fora da pasta), dizer qual é e
      esperar por ela.
-4. **O que já existe**: a pergunta do item 1 abaixo vai na mesma mensagem.
+d. **O que já existe**: a pergunta do passo 1 da lista seguinte vai na
+   mesma mensagem.
 
 Só seguir com o ok. Gravar na ficha os lugares combinados.
 
@@ -232,10 +283,10 @@ Só seguir com o ok. Gravar na ficha os lugares combinados.
 9. **Gemini**: gemini.google.com, na conta que a ficha indicar, criar o
    notebook com o mesmo nome, colar as instruções e subir só a logo e o
    resumo de marca. **Foto de pessoa não vai como fonte do notebook**: o
-   Gemini recusa rosto nítido ("Conteúdo incompatível") e a fonte recusada
-   fica contando e pode travar a conversa; a foto vai anexada em cada
-   mensagem. Se a conta não tiver notebook, criar um Gem (Gems ›
-   Novo Gem) e anotar na ficha qual dos dois foi. Copiar o link.
+   Gemini recusa rosto nítido ("Conteúdo incompatível", observado em
+   2026-10) e a fonte recusada fica contando e pode travar a conversa; a
+   foto vai anexada em cada mensagem. O notebook é o equivalente do projeto
+   do ChatGPT; o Gem foi testado e não serviu (2026-10). Copiar o link.
 10. Gravar os dois links e a data na ficha. O design system nasce na
     primeira peça com texto (`montagem.md`), com a mesma pergunta antes.
 
@@ -289,8 +340,11 @@ se misturam, se apagam ou se copiam um no outro.
    <PROJETO> 2; (3) Gemini, notebook <PROJETO>". Vários números valem: o
    mesmo pedido roda em cada destino escolhido: um no ChatGPT e um no
    Gemini podem ir ao mesmo tempo; dois destinos na mesma IA, um depois
-   do outro. A
-   ficha não guarda destino preferido. Abrir o link do destino e começar
+   do outro. A ficha não guarda destino preferido. **Pedido curto, como um
+   comando**: cor, fonte, margens e regras da marca moram nas instruções
+   do projeto e do notebook (passo 2.5), não no pedido. O mapa leva só o
+   formato e o texto da peça; o fundo é a frase da seção "Fundo igual ao
+   mapa". Abrir o link do destino e começar
    conversa nova dentro dele. **Nunca gerar fora do destino** (conversa
    avulsa, outro projeto) sem perguntar: se o destino travar (mais de 5
    minutos sem imagem), parar a geração e perguntar em uma linha se tenta
@@ -311,13 +365,15 @@ se misturam, se apagam ou se copiam um no outro.
 7. Conferir a imagem antes de baixar: rosto, mãos, dedos, acessórios,
    texto indevido e o que a ficha proíbe. Errou, pedir ajuste na mesma
    conversa.
-8. Baixar e mover para a pasta de saída da ficha com o nome
+8. Baixar e mover da pasta de downloads da ficha para a pasta de saída,
+   com o nome
    `AAAA-MM-DD-<o-que-e>-<formato>.png`. Lote vai numa subpasta
    `AAAA-MM-DD-loteN/`. O Chrome bloqueia downloads em sequência até alguém
    liberar o site: no primeiro bloqueio, parar e pedir ao usuário.
 
-Formato: ChatGPT costuma entregar 3:4 mesmo pedindo 4:5 (cortar depois);
-Gemini entrega maior. Panorâmica para carrossel: pedir "um fundo fluido, uma
+Formato (observado em 2026-10; confira de tempos em tempos): ChatGPT
+costuma entregar 3:4 mesmo pedindo 4:5 (cortar depois); Gemini entrega
+maior. Panorâmica para carrossel: pedir "um fundo fluido, uma
 só câmera, elementos atravessando os pontos de corte".
 
 ## 4. Registrar
@@ -326,6 +382,8 @@ só câmera, elementos atravessando os pontos de corte".
   evitar, pedido que funcionou): uma linha em **Aprendido** na ficha, com a
   data.
 - O que foi gerado e onde ficou: no registro do dia que o repositório usar.
+- Observação sobre o comportamento de uma IA (formato que sai, recusa,
+  limite): com a data, porque isso muda.
 
 ## Pedido vindo de outra sessão
 

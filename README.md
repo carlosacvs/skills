@@ -91,8 +91,11 @@ manual completo e registro de marca continuam sendo trabalho de designer.
 | Texto e logo | não tem | no canvas, pelas cores e fontes da marca |
 | Corrigir | pedir de novo | editar direto no canvas |
 
-Em peça com texto, a skill pergunta antes: versão completa como rascunho,
-só o fundo, ou as duas.
+Em peça com texto, a skill pergunta antes: versão completa como mapa, só
+o fundo, ou as duas. Sem resposta, faz o mapa. O fundo sai igual ao mapa:
+ela pede na mesma conversa, com uma frase curta, e tira só os textos do
+post (o que está escrito dentro da cena, como mensagens num celular,
+fica). Com a peça montada, ela abre o canvas na sua tela.
 
 ### Instalar
 
@@ -116,6 +119,20 @@ fazer, combina com você onde ficam a ficha, as fotos e as imagens geradas,
 e lista as permissões que vão aparecer (sites no Claude in Chrome, vários
 downloads no Chrome, mover arquivo da pasta Downloads) e para que serve
 cada uma. Só segue com o seu ok.
+
+### Atualizar
+
+No Claude Code, peça: "atualiza a skill estudio pelo
+github.com/carlosacvs/skills". Ou, no terminal, baixe de novo e copie por
+cima:
+
+```sh
+git clone https://github.com/carlosacvs/skills.git
+cp -R skills/estudio ~/.claude/skills/
+```
+
+A sua ficha `estudio.md` fica no seu projeto e não muda. O que mudou em
+cada versão está no [CHANGELOG](CHANGELOG.md).
 
 ### Precisa de
 
@@ -186,6 +203,8 @@ imagem em algum lugar, a skill obedece.
 | `estudio/identidade.md` | identidade visual para quem não tem |
 | `estudio/montagem.md` | fundo + montagem no canvas |
 | `estudio/modelo-estudio.md` | modelo da ficha de cada pessoa ou marca |
+| `estudio/exemplos/estudio-clinica-exemplo.md` | ficha preenchida, com marca inventada |
+| `CHANGELOG.md` | o que mudou em cada versão |
 
 ---
 
