@@ -1,5 +1,14 @@
 # Changelog
 
+## auditoria-de-seguranca-antes-de-instalar 1.0.0 · 2026-11-07
+
+- Primeira versão pública.
+
+## Repositório · 2026-11-07
+
+- README geral na raiz; o da estudio foi para `estudio/README.md`, e as
+  imagens dela para `docs/estudio/`.
+
 ## estudio 1.2.0 · 2026-10-16
 
 - Peça com texto: se você não escolher entre mapa, fundo ou os dois, a
