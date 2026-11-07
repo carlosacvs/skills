@@ -1,3 +1,5 @@
+![Skills para Claude Code: estudio e auditoria](docs/capa.jpg)
+
 # Skills
 
 Skills em português para o [Claude Code](https://claude.com/claude-code).
