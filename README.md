@@ -15,8 +15,9 @@ No Claude Code, copie a pasta da skill para `~/.claude/skills/` (vale em
 todos os projetos) ou para a pasta `.claude/skills/` de um projeto:
 
 ```sh
-git clone https://github.com/carlosacvs/skills.git
-cp -R skills/<nome-da-skill> ~/.claude/skills/
+git clone https://github.com/carlosacvs/skills.git /tmp/skills-atual
+cp -R /tmp/skills-atual/<nome-da-skill> ~/.claude/skills/
+rm -rf /tmp/skills-atual
 ```
 
 No claude.ai, compacte a pasta da skill num `.zip` e suba nas
@@ -25,17 +26,9 @@ configurações de skills.
 ## Atualizar
 
 No Claude Code, peça: "atualiza a skill <nome-da-skill> pelo
-github.com/carlosacvs/skills". Ou, no terminal, baixe a versão nova numa
-pasta temporária e copie por cima:
-
-```sh
-git clone https://github.com/carlosacvs/skills.git /tmp/skills-atual
-cp -R /tmp/skills-atual/<nome-da-skill> ~/.claude/skills/
-rm -rf /tmp/skills-atual
-```
-
-Se instalou só num projeto, troque `~/.claude/skills/` pela pasta
-`.claude/skills/` dele. O que mudou em cada versão está no
+github.com/carlosacvs/skills". Ou rode no terminal o mesmo comando do
+Instalar: ele baixa a versão nova numa pasta temporária, copia por cima e
+apaga a temporária. O que mudou em cada versão está no
 [CHANGELOG](CHANGELOG.md).
 
 ## Antes de instalar qualquer skill

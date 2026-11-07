@@ -54,11 +54,13 @@ instalar", "baixei esse zip, dá uma olhada", "não roda nada ainda".
 No Claude Code:
 
 ```sh
-git clone https://github.com/carlosacvs/skills.git
-cp -R skills/auditoria-de-seguranca-antes-de-instalar ~/.claude/skills/
+git clone https://github.com/carlosacvs/skills.git /tmp/skills-atual
+cp -R /tmp/skills-atual/auditoria-de-seguranca-antes-de-instalar ~/.claude/skills/
+rm -rf /tmp/skills-atual
 ```
 
-Para usar só num projeto, copie para a pasta `.claude/skills/` dele.
+Para usar só num projeto, troque `~/.claude/skills/` pela pasta
+`.claude/skills/` dele. Para atualizar, rode o mesmo comando.
 
 No claude.ai, compacte a pasta `auditoria-de-seguranca-antes-de-instalar`
 num `.zip` e suba nas configurações de skills.
