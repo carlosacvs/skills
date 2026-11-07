@@ -115,15 +115,17 @@ cada uma. Só segue com o seu ok.
 ## Atualizar
 
 No Claude Code, peça: "atualiza a skill estudio pelo
-github.com/carlosacvs/skills". Ou, no terminal, baixe de novo e copie por
-cima:
+github.com/carlosacvs/skills". Ou, no terminal, baixe a versão nova numa
+pasta temporária e copie por cima:
 
 ```sh
-git clone https://github.com/carlosacvs/skills.git
-cp -R skills/estudio ~/.claude/skills/
+git clone https://github.com/carlosacvs/skills.git /tmp/skills-atual
+cp -R /tmp/skills-atual/estudio ~/.claude/skills/
+rm -rf /tmp/skills-atual
 ```
 
-A sua ficha `estudio.md` fica no seu projeto e não muda. O que mudou em
+Se instalou só num projeto, troque `~/.claude/skills/` pela pasta
+`.claude/skills/` dele. A sua ficha `estudio.md` fica no seu projeto e não muda. O que mudou em
 cada versão está no [CHANGELOG](../CHANGELOG.md).
 
 ## Precisa de

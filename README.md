@@ -24,8 +24,19 @@ configurações de skills.
 
 ## Atualizar
 
-Baixe de novo e copie a pasta por cima, do mesmo jeito. O que mudou em
-cada versão está no [CHANGELOG](CHANGELOG.md).
+No Claude Code, peça: "atualiza a skill <nome-da-skill> pelo
+github.com/carlosacvs/skills". Ou, no terminal, baixe a versão nova numa
+pasta temporária e copie por cima:
+
+```sh
+git clone https://github.com/carlosacvs/skills.git /tmp/skills-atual
+cp -R /tmp/skills-atual/<nome-da-skill> ~/.claude/skills/
+rm -rf /tmp/skills-atual
+```
+
+Se instalou só num projeto, troque `~/.claude/skills/` pela pasta
+`.claude/skills/` dele. O que mudou em cada versão está no
+[CHANGELOG](CHANGELOG.md).
 
 ## Antes de instalar qualquer skill
 
